@@ -132,7 +132,7 @@ _DEFAULT_SIGNATURE_IDENTIFIERS: Dict[str, Dict[str, _SignatureCaptureOptions]] =
         ),
         "class_declaration": _SignatureCaptureOptions(
             end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
-            name_identifier="type_identifier",
+            name_identifier="identifier",
         ),
         "method_definition": _SignatureCaptureOptions(
             end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
