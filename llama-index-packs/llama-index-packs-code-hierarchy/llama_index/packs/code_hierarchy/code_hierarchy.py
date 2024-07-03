@@ -121,6 +121,24 @@ _DEFAULT_SIGNATURE_IDENTIFIERS: Dict[str, Dict[str, _SignatureCaptureOptions]] =
             name_identifier="property_identifier",
         ),
     },
+    "javascript": {
+        "interface_declaration": _SignatureCaptureOptions(
+            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
+            name_identifier="type_identifier",
+        ),
+        "function_declaration": _SignatureCaptureOptions(
+            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
+            name_identifier="identifier",
+        ),
+        "class_declaration": _SignatureCaptureOptions(
+            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
+            name_identifier="type_identifier",
+        ),
+        "method_definition": _SignatureCaptureOptions(
+            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
+            name_identifier="property_identifier",
+        ),
+    },
 }
 
 
@@ -146,6 +164,9 @@ _COMMENT_OPTIONS: Dict[str, _CommentOptions] = {
         comment_template="# {}", scope_method=_ScopeMethod.INDENTATION
     ),
     "typescript": _CommentOptions(
+        comment_template="// {}", scope_method=_ScopeMethod.BRACKETS
+    ),
+    "javascript": _CommentOptions(
         comment_template="// {}", scope_method=_ScopeMethod.BRACKETS
     ),
 }
