@@ -122,10 +122,6 @@ _DEFAULT_SIGNATURE_IDENTIFIERS: Dict[str, Dict[str, _SignatureCaptureOptions]] =
         ),
     },
     "javascript": {
-        "interface_declaration": _SignatureCaptureOptions(
-            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
-            name_identifier="type_identifier",
-        ),
         "function_declaration": _SignatureCaptureOptions(
             end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
             name_identifier="identifier",
