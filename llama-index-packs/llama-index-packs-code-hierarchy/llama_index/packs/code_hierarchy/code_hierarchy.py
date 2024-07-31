@@ -100,14 +100,34 @@ _DEFAULT_SIGNATURE_IDENTIFIERS: Dict[str, Dict[str, _SignatureCaptureOptions]] =
         ),
     },
     "typescript": {
-        "interface_declaration": _SignatureCaptureOptions(
-            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
-            name_identifier="type_identifier",
-        ),
-        "lexical_declaration": _SignatureCaptureOptions(
+        "function_declaration": _SignatureCaptureOptions(
             end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
             name_identifier="identifier",
         ),
+        "class_declaration": _SignatureCaptureOptions(
+            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
+            name_identifier="type_identifier",
+        ),
+        "method_definition": _SignatureCaptureOptions(
+            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
+            name_identifier="property_identifier",
+        ),
+    },
+    "jsx": {
+        "function_declaration": _SignatureCaptureOptions(
+            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
+            name_identifier="identifier",
+        ),
+        "class_declaration": _SignatureCaptureOptions(
+            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
+            name_identifier="type_identifier",
+        ),
+        "method_definition": _SignatureCaptureOptions(
+            end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
+            name_identifier="property_identifier",
+        ),
+    },
+    "tsx": {
         "function_declaration": _SignatureCaptureOptions(
             end_signature_types=[_SignatureCaptureType(type="{", inclusive=False)],
             name_identifier="identifier",
@@ -160,6 +180,12 @@ _COMMENT_OPTIONS: Dict[str, _CommentOptions] = {
         comment_template="# {}", scope_method=_ScopeMethod.INDENTATION
     ),
     "typescript": _CommentOptions(
+        comment_template="// {}", scope_method=_ScopeMethod.BRACKETS
+    ),
+    "tsx": _CommentOptions(
+        comment_template="// {}", scope_method=_ScopeMethod.BRACKETS
+    ),
+    "jsx": _CommentOptions(
         comment_template="// {}", scope_method=_ScopeMethod.BRACKETS
     ),
     "javascript": _CommentOptions(
